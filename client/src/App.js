@@ -5,11 +5,14 @@ import NavBar from "./components/NavBar";
 import Session from "./components/Session";
 import FormSession from "./pages/FormSession";
 import SessionDay from "./components/SessionDay";
+import ToDoPage from "./pages/ToDoPage";
 
 const App = () => {
   return (
     <BrowserRouter>
         <NavBar />
+
+        <ToDoPage/>
         <Session />
         <SessionDay />
       <AppRouter />
