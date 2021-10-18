@@ -1,16 +1,28 @@
 import {useState} from "react";
 
-function ToDoForm() {
-    const [value, setValue] = useState([])
-    const addTask = () => {
+function ToDoForm({addTask}) {
+    const [userInput, setUserInput] = useState('')
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        addTask(userInput)
+        setUserInput('')
     }
+    const handleChange = (e) => {
+        setUserInput(e.currentTarget.value)
+    }
+
     return (
-        <div>
-            <input value={value} onChange={(e) => setValue(e.target.value)}/>
-            <button onClick={addTask}> Add</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <input
+                value={userInput}
+                onChange={handleChange}
+            />
+            <button>Add</button>
+        </form>
     )
+
+
 
 }
 

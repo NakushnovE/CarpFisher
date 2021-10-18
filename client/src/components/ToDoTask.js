@@ -1,14 +1,20 @@
-import ToDoForm from "./ToDoForm";
 import {useState} from "react";
 
-
-const ToDoTask = (props) => {
-    //const [value, setValue] = useState('')
+const ToDoTask = ({list, remoteTask, changeFlag}) => {
+    const [checked, setChecked] = useState(false)
 
     return (
-        <p>
-            {props.task}
-        </p>
+        <div>
+            <div className={list.flag ? "ready": "not-ready"}>
+                {list.task}
+            </div>
+            <div>
+                <input type='checkbox' onClick={()=> changeFlag(list.id)} />
+            </div>
+            <div>
+                <button   onClick={()=> remoteTask(list.id)}>X</button>
+            </div>
+        </div>
 
     )
 
