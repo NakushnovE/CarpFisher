@@ -13,12 +13,17 @@ function ToDoForm({addTask}) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                value={userInput}
-                onChange={handleChange}
-            />
-            <button>Add</button>
+        <form className="block-form" onSubmit={handleSubmit}>
+            <div className="block-user-input">
+                <input className="place-input"
+                    value={userInput}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="block-add-item">
+                <button className="btn-add-item">Add</button>
+            </div>
+
         </form>
     )
 

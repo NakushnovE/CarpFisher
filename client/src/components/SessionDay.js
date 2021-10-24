@@ -23,7 +23,7 @@ const SessionDay = () => {
                     <td style={{'width': '30px', 'height':'25px'}}>22</td>
                 </tr>
                 <tr>
-                    <td style={{'width': '30px', 'height':'25px'}}>ОблочностьD</td>
+                    <td style={{'width': '30px', 'height':'25px'}}>Облочность</td>
                     <td>В/С</td>
                     <td>В/С</td>
                     <td>В/С</td>
