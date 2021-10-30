@@ -27,24 +27,10 @@ const ToDoPage = () => {
             ...todoList.map((item) =>
                 item.id === id ? {...item, flag: !item.flag} : {...item}),
         ])
-    }
-    const delItem = (id) => {
-        const indexDel = todoList.findIndex((item) => item.id === id)
-        const item = {...todoList.splice(indexDel, 1)}
-        console.log(item)
-        //const itemPush = {...todoList.push(item)}
 
-        setTodoList([...todoList, item])
-        /*setTodoList([
-            ...todoList, ...todoList.splice(indexDel, 1)
-        ])*/
-        //setTodoList([...todoList.push((item=> item.id !== id))])
-
+        console.log(todoList)
     }
-    /*const x = (id) => {
-        changeFlag()
-        delItem()
-    }*/
+
     const countTask = {
         marginLeft: 20,
         textAlign: "center"
@@ -55,19 +41,32 @@ const ToDoPage = () => {
             <h1 style={countTask}>To Do: {todoList.length}</h1>
             <ToDoForm addTask={addTask}/>
             {todoList.map((item) => {
-                return (
-                    <ToDoTask
-                        item={item}
-                        key={item.id}
-                        remoteTask={remoteTask}
-                        changeFlag={delItem}
+                if(!item.flag) {
+                    return (
+                        <ToDoTask
+                            item={item}
+                            key={item.id}
+                            remoteTask={remoteTask}
+                            changeFlag={changeFlag}
+                        />
+                    )
+                }
+            })}
 
-                    />
-                )
+            {todoList.map((item) => {
+                if(item.flag) {
+                    return (
+                        <ToDoTask
+                            item={item}
+                            key={item.id}
+                            remoteTask={remoteTask}
+                            changeFlag={changeFlag}
+                        />
+                    )
+                }
             })}
         </div>
     )
-
 };
 
 export default ToDoPage;

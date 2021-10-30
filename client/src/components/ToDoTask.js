@@ -3,11 +3,15 @@ import {useState} from "react";
 const ToDoTask = ({item, remoteTask, changeFlag}) => {
     const [checked, setChecked] = useState(false)
 
+    const handleChecked = () => {
+      setChecked((checked) => item.flag ? !checked: checked
+      )
+    }
 
     return (
         <div className="taskBlock">
             <div className="elem-checkbox">
-                <input type='checkbox' onClick={()=> changeFlag(item.id)} />
+                <input type='checkbox' checked={checked} onChange={()=> changeFlag(item.id)} />
             </div>
             <div className="elem-task">
                 <div className={item.flag ? "ready": "not-ready"}>

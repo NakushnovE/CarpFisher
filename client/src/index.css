@@ -20,6 +20,7 @@
     border: 2px solid black;
     position: relative;
 
+
 }
 .block-form {
     display: flex;
@@ -36,6 +37,7 @@
     position: relative;
     border: 1px solid #cfcccd;
     border-radius: 10px;
+    background-color: #f3efef;
     padding: 10px;
     height: auto;
 }
